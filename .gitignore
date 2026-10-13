@@ -1,0 +1,12 @@
+# Frontend
+frontend/node_modules/
+frontend/dist/
+frontend/.env
+
+# Backend
+backend/target/
+
+# Local tooling and editor files
+.idea/
+.vscode/
+.DS_Store
