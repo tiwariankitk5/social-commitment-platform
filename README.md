@@ -44,6 +44,14 @@ Open [http://localhost:5173](http://localhost:5173). To use PostgreSQL, set `DB_
 
 ## Deploy
 
+### Render (recommended)
+
+The repository includes a `render.yaml` Blueprint. In Render, select **New > Blueprint**, choose this GitHub repository, and select the `Free` plan. Render creates the Spring API, compiled React frontend, and a PostgreSQL database together. The app is served from one public HTTPS URL.
+
+The free service spins down after 15 minutes without traffic and can take about a minute to wake up. The free Postgres database expires after 30 days; upgrade it before then if you need persistent data.
+
+### Other hosts
+
 For a single-server deployment, build and run the included Compose stack. The production frontend image serves compiled assets through Nginx and proxies `/api` to the backend.
 
 For split hosting, deploy `backend/` as a Java 21 web service with a PostgreSQL database. Set:

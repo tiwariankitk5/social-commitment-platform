@@ -1,0 +1,27 @@
+services:
+  - type: web
+    name: social-commitment-platform
+    runtime: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    healthCheckPath: /api/health
+    envVars:
+      - key: DB_URL
+        fromDatabase:
+          name: social-commitment-db
+          property: connectionString
+      - key: DB_USERNAME
+        fromDatabase:
+          name: social-commitment-db
+          property: user
+      - key: DB_PASSWORD
+        fromDatabase:
+          name: social-commitment-db
+          property: password
+
+databases:
+  - name: social-commitment-db
+    plan: free
+    databaseName: social_commitment
+    user: social_commitment
